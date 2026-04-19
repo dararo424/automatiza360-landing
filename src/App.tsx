@@ -12,6 +12,7 @@ import { Competitors } from './components/Competitors';
 import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
 import { FinalCTA } from './components/FinalCTA';
+import { BeforeAfter } from './components/BeforeAfter';
 import { Footer } from './components/Footer';
 import { TerminosPage } from './pages/TerminosPage';
 import { PrivacidadPage } from './pages/PrivacidadPage';
@@ -49,6 +50,7 @@ export default function App() {
         <Hero />
         <SocialProof />
         <HowItWorks />
+        <BeforeAfter />
         <Features />
         <Industries />
         <BusinessAnalyzer />
