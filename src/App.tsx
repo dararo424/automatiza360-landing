@@ -16,6 +16,7 @@ import { BeforeAfter } from './components/BeforeAfter';
 import { Footer } from './components/Footer';
 import { TerminosPage } from './pages/TerminosPage';
 import { PrivacidadPage } from './pages/PrivacidadPage';
+import { CookieBanner } from './components/CookieBanner';
 
 type Page = 'home' | 'terminos' | 'privacidad';
 
@@ -40,8 +41,8 @@ export default function App() {
     window.scrollTo(0, 0);
   }
 
-  if (page === 'terminos') return <I18nProvider><TerminosPage onBack={() => navigate('home')} /></I18nProvider>;
-  if (page === 'privacidad') return <I18nProvider><PrivacidadPage onBack={() => navigate('home')} /></I18nProvider>;
+  if (page === 'terminos') return <I18nProvider><TerminosPage onBack={() => navigate('home')} /><CookieBanner /></I18nProvider>;
+  if (page === 'privacidad') return <I18nProvider><PrivacidadPage onBack={() => navigate('home')} /><CookieBanner /></I18nProvider>;
 
   return (
     <I18nProvider>
@@ -61,6 +62,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer onNavigate={navigate} />
+      <CookieBanner />
     </I18nProvider>
   );
 }
