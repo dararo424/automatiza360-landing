@@ -1,6 +1,8 @@
 import { useI18n } from '../hooks/useI18n';
 
-export function Footer() {
+interface Props { onNavigate: (page: 'terminos' | 'privacidad') => void }
+
+export function Footer({ onNavigate }: Props) {
   const { t } = useI18n();
 
   return (
@@ -33,11 +35,24 @@ export function Footer() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-4">Legal</h4>
             <div className="space-y-2">
-              {[t.footer.terms, t.footer.privacy, t.footer.contact].map((link) => (
-                <a key={link} href="#" className="block text-slate-400 hover:text-white text-sm transition-colors">
-                  {link}
-                </a>
-              ))}
+              <button
+                onClick={() => onNavigate('terminos')}
+                className="block text-slate-400 hover:text-white text-sm transition-colors"
+              >
+                {t.footer.terms}
+              </button>
+              <button
+                onClick={() => onNavigate('privacidad')}
+                className="block text-slate-400 hover:text-white text-sm transition-colors"
+              >
+                {t.footer.privacy}
+              </button>
+              <a
+                href="mailto:hola@automatiza360.com"
+                className="block text-slate-400 hover:text-white text-sm transition-colors"
+              >
+                {t.footer.contact}
+              </a>
             </div>
           </div>
 

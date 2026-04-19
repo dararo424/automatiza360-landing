@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { I18nProvider } from './hooks/useI18n';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -12,8 +13,35 @@ import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
+import { TerminosPage } from './pages/TerminosPage';
+import { PrivacidadPage } from './pages/PrivacidadPage';
+
+type Page = 'home' | 'terminos' | 'privacidad';
+
+function getPageFromHash(): Page {
+  const h = window.location.hash;
+  if (h === '#/terminos') return 'terminos';
+  if (h === '#/privacidad') return 'privacidad';
+  return 'home';
+}
 
 export default function App() {
+  const [page, setPage] = useState<Page>(getPageFromHash);
+
+  useEffect(() => {
+    const onHash = () => setPage(getPageFromHash());
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  function navigate(p: Page) {
+    window.location.hash = p === 'home' ? '' : `/${p}`;
+    window.scrollTo(0, 0);
+  }
+
+  if (page === 'terminos') return <I18nProvider><TerminosPage onBack={() => navigate('home')} /></I18nProvider>;
+  if (page === 'privacidad') return <I18nProvider><PrivacidadPage onBack={() => navigate('home')} /></I18nProvider>;
+
   return (
     <I18nProvider>
       <Navbar />
@@ -30,7 +58,7 @@ export default function App() {
         <FAQ />
         <FinalCTA />
       </main>
-      <Footer />
+      <Footer onNavigate={navigate} />
     </I18nProvider>
   );
 }
