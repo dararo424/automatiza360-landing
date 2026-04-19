@@ -27,7 +27,7 @@ export function Pricing() {
                 key={plan.name}
                 className={`animate-on-scroll stagger-${i + 1} relative rounded-2xl p-8 flex flex-col ${
                   isPopular
-                    ? 'bg-brand-green text-brand-dark ring-2 ring-brand-green shadow-2xl shadow-green-500/30 scale-105'
+                    ? 'bg-brand-green text-brand-dark ring-2 ring-brand-green shadow-2xl shadow-brand-green/30 scale-105'
                     : 'bg-white/5 border border-white/10 text-white'
                 }`}
               >

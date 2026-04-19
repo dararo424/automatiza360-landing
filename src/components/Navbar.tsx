@@ -67,7 +67,7 @@ export function Navbar() {
             </a>
             <a
               href={`${APP_URL}/onboarding`}
-              className="text-sm bg-brand-green hover:bg-green-400 text-brand-dark font-semibold px-4 py-2 rounded-lg transition-colors"
+              className="text-sm bg-brand-green hover:brightness-110 text-brand-dark font-semibold px-4 py-2 rounded-lg transition-colors"
             >
               {t.nav.start}
             </a>

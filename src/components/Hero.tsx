@@ -17,7 +17,9 @@ export function Hero() {
         }}
       />
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark to-green-950/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark to-brand-accent/10" />
+      {/* Violet glow behind mockup */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-accent/8 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -41,7 +43,7 @@ export function Hero() {
             <div className="flex flex-wrap gap-3 mb-8">
               <a
                 href={`${APP_URL}/onboarding`}
-                className="inline-flex items-center gap-2 bg-brand-green hover:bg-green-400 text-brand-dark font-bold px-6 py-3.5 rounded-xl text-base transition-all hover:scale-105 shadow-lg shadow-green-500/25"
+                className="inline-flex items-center gap-2 bg-brand-green hover:brightness-110 text-brand-dark font-bold px-6 py-3.5 rounded-xl text-base transition-all hover:scale-105 shadow-lg shadow-brand-green/25"
               >
                 {t.hero.cta}
               </a>

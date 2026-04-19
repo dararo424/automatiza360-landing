@@ -149,7 +149,7 @@ export function BusinessAnalyzer() {
               <button
                 onClick={handleAnalyze}
                 disabled={step === 'loading-onboard' || description.trim().length < 10}
-                className="inline-flex items-center gap-2 bg-brand-green hover:bg-green-400 disabled:opacity-40 disabled:cursor-not-allowed text-brand-dark font-bold px-6 py-3 rounded-xl text-sm transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 bg-brand-green hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed text-brand-dark font-bold px-6 py-3 rounded-xl text-sm transition-all hover:scale-105"
               >
                 {step === 'loading-onboard' ? (
                   <>
@@ -234,7 +234,7 @@ export function BusinessAnalyzer() {
             {/* CTA */}
             <button
               onClick={() => setStep('signup')}
-              className="w-full text-center bg-brand-green hover:bg-green-400 text-brand-dark font-bold py-4 rounded-xl text-base transition-all hover:scale-105 shadow-lg shadow-green-500/20"
+              className="w-full text-center bg-brand-green hover:brightness-110 text-brand-dark font-bold py-4 rounded-xl text-base transition-all hover:scale-105 shadow-lg shadow-brand-green/20"
             >
               {t.businessAnalyzer.startCta} →
             </button>
@@ -333,7 +333,7 @@ export function BusinessAnalyzer() {
               <button
                 type="submit"
                 disabled={step === 'loading-onboard'}
-                className="w-full bg-brand-green hover:bg-green-400 disabled:opacity-50 disabled:cursor-not-allowed text-brand-dark font-bold py-4 rounded-xl text-base transition-all hover:scale-105"
+                className="w-full bg-brand-green hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed text-brand-dark font-bold py-4 rounded-xl text-base transition-all hover:scale-105"
               >
                 {step === 'loading-onboard' ? (
                   <span className="flex items-center justify-center gap-2">
