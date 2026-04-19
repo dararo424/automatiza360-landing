@@ -2,7 +2,7 @@ import { type RefObject, useState } from 'react';
 import { useI18n } from '../hooks/useI18n';
 import { useIntersection } from '../hooks/useIntersection';
 
-const API_URL = (import.meta.env['VITE_API_URL'] as string | undefined) ?? 'http://localhost:3000';
+const API_URL = ((import.meta.env['VITE_API_URL'] as string | undefined) ?? 'http://localhost:3000').replace(/\/$/, '');
 const APP_URL = (import.meta.env['VITE_APP_URL'] as string | undefined) ?? 'http://localhost:5173';
 
 interface AnalysisResult {
