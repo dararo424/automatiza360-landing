@@ -16,6 +16,7 @@ export function Navbar() {
   const links = [
     { label: t.nav.features, id: 'features' },
     { label: t.nav.industries, id: 'industries' },
+    { label: t.nav.analyze, id: 'analizar' },
     { label: t.nav.pricing, id: 'pricing' },
     { label: t.nav.contact, id: 'contact' },
   ];

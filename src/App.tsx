@@ -6,6 +6,7 @@ import { HowItWorks } from './components/HowItWorks';
 import { Features } from './components/Features';
 import { Industries } from './components/Industries';
 import { Pricing } from './components/Pricing';
+import { BusinessAnalyzer } from './components/BusinessAnalyzer';
 import { Competitors } from './components/Competitors';
 import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
@@ -22,6 +23,7 @@ export default function App() {
         <HowItWorks />
         <Features />
         <Industries />
+        <BusinessAnalyzer />
         <Pricing />
         <Competitors />
         <Testimonials />
