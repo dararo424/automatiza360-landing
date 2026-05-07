@@ -17,6 +17,7 @@ import { Footer } from './components/Footer';
 import { TerminosPage } from './pages/TerminosPage';
 import { PrivacidadPage } from './pages/PrivacidadPage';
 import { CookieBanner } from './components/CookieBanner';
+import { StickyCta } from './components/StickyCta';
 
 type Page = 'home' | 'terminos' | 'privacidad';
 
@@ -50,11 +51,11 @@ export default function App() {
       <main>
         <Hero />
         <SocialProof />
-        <HowItWorks />
-        <BeforeAfter />
-        <Features />
-        <Industries />
         <BusinessAnalyzer />
+        <HowItWorks />
+        <Features />
+        <BeforeAfter />
+        <Industries />
         <Pricing />
         <Competitors />
         <Testimonials />
@@ -63,6 +64,7 @@ export default function App() {
       </main>
       <Footer onNavigate={navigate} />
       <CookieBanner />
+      <StickyCta />
     </I18nProvider>
   );
 }
