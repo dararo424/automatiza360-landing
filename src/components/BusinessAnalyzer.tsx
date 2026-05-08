@@ -21,9 +21,9 @@ type Step = 'input' | 'result' | 'signup' | 'loading-onboard';
 
 const PLAN_STYLES: Record<string, { badge: string; border: string; bg: string }> = {
   STARTER: {
-    badge: 'text-sky-400 bg-sky-400/10 border-sky-400/30',
-    border: 'border-sky-400/20',
-    bg: 'from-white/5 to-sky-900/10',
+    badge: 'text-slate-300 bg-white/5 border-white/20',
+    border: 'border-white/15',
+    bg: 'from-white/5 to-white/[0.02]',
   },
   PRO: {
     badge: 'text-brand-green bg-brand-green/10 border-brand-green/30',
@@ -31,9 +31,9 @@ const PLAN_STYLES: Record<string, { badge: string; border: string; bg: string }>
     bg: 'from-white/5 to-brand-green/5',
   },
   BUSINESS: {
-    badge: 'text-purple-400 bg-purple-400/10 border-purple-400/30',
-    border: 'border-purple-400/20',
-    bg: 'from-white/5 to-purple-900/10',
+    badge: 'text-emerald-200 bg-emerald-500/10 border-emerald-300/30',
+    border: 'border-emerald-300/20',
+    bg: 'from-white/5 to-emerald-900/15',
   },
 };
 

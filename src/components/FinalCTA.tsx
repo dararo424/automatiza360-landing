@@ -26,9 +26,9 @@ export function FinalCTA() {
             className="absolute top-0 right-0 w-72 h-72 bg-brand-green rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
           />
           <motion.div
-            animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
+            animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
             transition={{ duration: 6, repeat: Infinity, delay: 3 }}
-            className="absolute bottom-0 left-0 w-72 h-72 bg-brand-accent rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
+            className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
           />
 
           <div className="relative">

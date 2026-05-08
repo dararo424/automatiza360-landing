@@ -9,12 +9,12 @@ export function Features() {
   const ref = useIntersection();
 
   const features = [
-    { Icon: Bot, title: t.features.f1Title, desc: t.features.f1Desc, accent: 'from-brand-green/20 to-brand-green/0' },
-    { Icon: ShoppingBag, title: t.features.f2Title, desc: t.features.f2Desc, accent: 'from-sky-500/20 to-sky-500/0' },
-    { Icon: CalendarCheck, title: t.features.f3Title, desc: t.features.f3Desc, accent: 'from-brand-accent/20 to-brand-accent/0' },
-    { Icon: Receipt, title: t.features.f4Title, desc: t.features.f4Desc, accent: 'from-amber-500/20 to-amber-500/0' },
-    { Icon: LineChart, title: t.features.f5Title, desc: t.features.f5Desc, accent: 'from-brand-green/20 to-brand-green/0' },
-    { Icon: Smartphone, title: t.features.f6Title, desc: t.features.f6Desc, accent: 'from-pink-500/20 to-pink-500/0' },
+    { Icon: Bot, title: t.features.f1Title, desc: t.features.f1Desc },
+    { Icon: ShoppingBag, title: t.features.f2Title, desc: t.features.f2Desc },
+    { Icon: CalendarCheck, title: t.features.f3Title, desc: t.features.f3Desc },
+    { Icon: Receipt, title: t.features.f4Title, desc: t.features.f4Desc },
+    { Icon: LineChart, title: t.features.f5Title, desc: t.features.f5Desc },
+    { Icon: Smartphone, title: t.features.f6Title, desc: t.features.f6Desc },
   ];
 
   return (
@@ -40,7 +40,7 @@ export function Features() {
               whileHover={{ y: -4 }}
               className="group relative bg-white/[0.03] border border-white/10 rounded-2xl p-7 hover:border-brand-green/40 hover:bg-white/[0.05] transition-all overflow-hidden"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${f.accent} opacity-0 group-hover:opacity-100 transition-opacity`} />
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-green/15 to-brand-green/0 opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative">
                 <div className="w-12 h-12 bg-brand-green/10 ring-1 ring-brand-green/20 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green/20 group-hover:ring-brand-green/40 transition-all">
                   <f.Icon className="w-6 h-6 text-brand-green" strokeWidth={2} />

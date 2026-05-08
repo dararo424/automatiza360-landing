@@ -18,17 +18,17 @@ export function Hero() {
           maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark to-brand-accent/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark to-brand-green/5" />
 
       <motion.div
-        animate={{ opacity: [0.4, 0.7, 0.4] }}
+        animate={{ opacity: [0.3, 0.55, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[640px] h-[640px] bg-brand-accent/10 rounded-full blur-[140px] pointer-events-none"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[640px] h-[640px] bg-brand-green/10 rounded-full blur-[140px] pointer-events-none"
       />
       <motion.div
-        animate={{ opacity: [0.3, 0.5, 0.3] }}
+        animate={{ opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute -left-32 top-1/4 w-[500px] h-[500px] bg-brand-green/8 rounded-full blur-[120px] pointer-events-none"
+        className="absolute -left-32 top-1/4 w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[120px] pointer-events-none"
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
@@ -95,7 +95,7 @@ export function Hero() {
 
             <div className="flex items-center gap-4 pt-4 border-t border-white/5">
               <div className="flex -space-x-2">
-                {['from-brand-green to-emerald-400', 'from-sky-400 to-blue-500', 'from-brand-accent to-purple-400', 'from-amber-400 to-orange-500'].map((g, i) => (
+                {['from-brand-green to-emerald-400', 'from-emerald-400 to-teal-500', 'from-teal-500 to-emerald-600', 'from-emerald-300 to-brand-green'].map((g, i) => (
                   <div
                     key={i}
                     className={`w-9 h-9 rounded-full bg-gradient-to-br ${g} ring-2 ring-brand-dark`}
