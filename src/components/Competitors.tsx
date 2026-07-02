@@ -11,13 +11,11 @@ const COMPETITORS = [
   { name: '✦ Automatiza360',         price: 'USD $19–129',  ai: true,  multi: true,  es: true,  highlight: true  },
 ];
 
-function Check({ yes, highlight }: { yes: boolean; highlight: boolean }) {
+function Mark({ yes }: { yes: boolean }) {
   if (yes) {
-    return (
-      <span className={`font-bold ${highlight ? 'text-brand-dark' : 'text-brand-green'}`}>✓</span>
-    );
+    return <span className="font-bold text-ink">✓</span>;
   }
-  return <span className="text-slate-600">✗</span>;
+  return <span className="text-ink/30 font-bold">✗</span>;
 }
 
 export function Competitors() {
@@ -25,21 +23,22 @@ export function Competitors() {
   const ref = useIntersection();
 
   return (
-    <section className="py-24 bg-brand-mid" ref={ref as RefObject<HTMLElement>}>
+    <section className="py-24 bg-ink" ref={ref as RefObject<HTMLElement>}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 animate-on-scroll">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+          <p className="label-mono text-brand-green mb-4">// VS</p>
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-paper mb-4 tracking-tight">
             {t.competitors.title}
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">{t.competitors.subtitle}</p>
+          <p className="text-paper/60 text-lg max-w-2xl mx-auto font-medium">{t.competitors.subtitle}</p>
         </div>
 
-        <div className="animate-on-scroll overflow-x-auto rounded-2xl border border-white/10">
+        <div className="animate-on-scroll overflow-x-auto border-2 border-ink shadow-brut-green bg-paper">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-white/10">
+              <tr className="bg-ink">
                 {t.competitors.columns.map((col) => (
-                  <th key={col} className="px-5 py-4 text-left text-slate-400 font-medium">
+                  <th key={col} className="px-5 py-4 text-left text-paper font-mono text-xs font-bold uppercase tracking-wider whitespace-nowrap">
                     {col}
                   </th>
                 ))}
@@ -49,17 +48,17 @@ export function Competitors() {
               {COMPETITORS.map((row) => (
                 <tr
                   key={row.name}
-                  className={`border-b border-white/5 last:border-0 transition-colors ${
+                  className={`border-b-2 border-ink/10 last:border-0 ${
                     row.highlight
-                      ? 'bg-brand-green text-brand-dark font-semibold'
-                      : 'text-slate-300 hover:bg-white/5'
+                      ? 'bg-brand-green text-ink font-bold'
+                      : 'text-ink/80 bg-paper'
                   }`}
                 >
-                  <td className="px-5 py-4 font-medium">{row.name}</td>
-                  <td className="px-5 py-4">{row.price}</td>
-                  <td className="px-5 py-4 text-center"><Check yes={row.ai} highlight={row.highlight} /></td>
-                  <td className="px-5 py-4 text-center"><Check yes={row.multi} highlight={row.highlight} /></td>
-                  <td className="px-5 py-4 text-center"><Check yes={row.es} highlight={row.highlight} /></td>
+                  <td className={`px-5 py-4 whitespace-nowrap ${row.highlight ? 'font-display font-extrabold' : 'font-semibold'}`}>{row.name}</td>
+                  <td className="px-5 py-4 font-mono text-xs whitespace-nowrap">{row.price}</td>
+                  <td className="px-5 py-4 text-center"><Mark yes={row.ai} /></td>
+                  <td className="px-5 py-4 text-center"><Mark yes={row.multi} /></td>
+                  <td className="px-5 py-4 text-center"><Mark yes={row.es} /></td>
                 </tr>
               ))}
             </tbody>

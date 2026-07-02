@@ -2,36 +2,38 @@ import type { RefObject } from 'react';
 import { useI18n } from '../hooks/useI18n';
 import { useIntersection } from '../hooks/useIntersection';
 
+const ROTATIONS = ['md:-rotate-2', 'md:rotate-1', 'md:-rotate-1'];
+
 export function Testimonials() {
   const { t } = useI18n();
   const ref = useIntersection();
 
   return (
-    <section className="py-24 bg-brand-light" ref={ref as RefObject<HTMLElement>}>
+    <section className="py-24 bg-sun border-y-2 border-ink overflow-hidden" ref={ref as RefObject<HTMLElement>}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-dark mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-ink mb-4 tracking-tight">
             {t.testimonials.title}
           </h2>
-          <p className="text-slate-500 text-lg">{t.testimonials.subtitle}</p>
+          <p className="text-ink/70 text-lg font-medium">{t.testimonials.subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {t.testimonials.items.map((item, i) => (
             <div
               key={i}
-              className={`animate-on-scroll stagger-${i + 1} bg-white rounded-2xl p-7 shadow-sm border border-slate-100 flex flex-col`}
+              className={`animate-on-scroll stagger-${i + 1} bg-white border-2 border-ink shadow-brut-lg p-7 flex flex-col ${ROTATIONS[i]}`}
             >
               {/* Pain story */}
-              <p className="text-slate-600 text-sm leading-relaxed flex-1 mb-6 italic">
+              <p className="text-ink/75 text-sm leading-relaxed flex-1 mb-6 italic font-medium">
                 {item.text}
               </p>
 
               {/* Resolution */}
-              <div className="pt-4 border-t border-slate-100">
-                <p className="text-slate-400 text-xs mb-1">{item.author}</p>
-                <p className="font-bold text-brand-dark text-sm">{item.company}</p>
-                <span className="inline-block mt-2 text-xs text-slate-400 bg-slate-50 rounded-full px-3 py-1">
+              <div className="pt-4 border-t-2 border-ink/10">
+                <p className="font-mono text-xs text-ink/50 mb-1">{item.author}</p>
+                <p className="font-display font-extrabold text-ink text-sm">{item.company}</p>
+                <span className="sticker bg-paper mt-3 text-[10px] -rotate-1">
                   {item.industry}
                 </span>
               </div>

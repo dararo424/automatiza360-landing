@@ -76,15 +76,15 @@ export function WhatsAppMockup() {
   return (
     <div className="relative w-full max-w-xs mx-auto">
       {/* Industry tabs */}
-      <div className="flex gap-2 justify-center mb-4">
+      <div className="flex gap-2 justify-center mb-5">
         {SCENARIOS.map((s, i) => (
           <button
             key={s.label}
             onClick={() => { setScenarioIdx(i); setVisible([]); setTyping(false); setCycle((c) => c + 1); }}
-            className={`text-xs px-3 py-1 rounded-full border transition-all ${
+            className={`text-xs font-bold px-3 py-1 border-2 border-ink transition-all ${
               i === scenarioIdx
-                ? 'bg-brand-green text-brand-dark border-brand-green font-semibold'
-                : 'border-white/20 text-slate-400 hover:border-white/40'
+                ? 'bg-ink text-paper shadow-brut-sm'
+                : 'bg-white text-ink hover:bg-sun'
             }`}
           >
             {s.emoji} {s.label}
@@ -93,7 +93,7 @@ export function WhatsAppMockup() {
       </div>
 
       {/* Phone frame */}
-      <div className="relative bg-[#111B21] rounded-3xl shadow-2xl overflow-hidden border border-white/10" style={{ aspectRatio: '9/16', maxHeight: '500px' }}>
+      <div className="relative bg-[#111B21] rounded-2xl shadow-brut-xl overflow-hidden border-2 border-ink" style={{ aspectRatio: '9/16', maxHeight: '500px' }}>
         {/* Header */}
         <div className="bg-[#1F2C34] px-4 py-2.5 flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-brand-green flex items-center justify-center text-lg">
@@ -151,8 +151,6 @@ export function WhatsAppMockup() {
         </div>
       </div>
 
-      {/* Glow */}
-      <div className="absolute -inset-4 bg-brand-green/15 rounded-3xl blur-2xl -z-10" />
     </div>
   );
 }

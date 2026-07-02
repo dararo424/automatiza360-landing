@@ -8,108 +8,85 @@ const APP_URL = (import.meta.env['VITE_APP_URL'] as string | undefined) ?? 'http
 export function Hero() {
   const { t } = useI18n();
 
+  const marqueeItems = [
+    t.features.f1Title,
+    t.features.f2Title,
+    t.features.f3Title,
+    t.features.f4Title,
+    t.features.f6Title,
+  ];
+
   return (
-    <section className="min-h-screen bg-brand-dark flex items-center pt-16 overflow-hidden relative">
-      <div
-        className="absolute inset-0 opacity-[0.18]"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.18) 1px, transparent 0)',
-          backgroundSize: '32px 32px',
-          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-dark to-brand-green/5" />
+    <section className="bg-paper pt-16 relative overflow-hidden">
+      {/* Scattered decorative marks — flat ink, no blur */}
+      <span aria-hidden className="hidden lg:block absolute top-32 right-[46%] font-display font-extrabold text-4xl text-brand-green select-none rotate-12">✱</span>
+      <span aria-hidden className="hidden lg:block absolute bottom-40 left-[3%] font-display font-extrabold text-3xl text-sun select-none -rotate-6">✱</span>
 
-      <motion.div
-        animate={{ opacity: [0.3, 0.55, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[640px] h-[640px] bg-brand-green/10 rounded-full blur-[140px] pointer-events-none"
-      />
-      <motion.div
-        animate={{ opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="absolute -left-32 top-1/4 w-[500px] h-[500px] bg-emerald-500/8 rounded-full blur-[120px] pointer-events-none"
-      />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-20 lg:pt-20 lg:pb-24 w-full">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 bg-brand-green/10 border border-brand-green/30 text-brand-green text-sm font-medium px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm"
-            >
-              <span className="relative flex w-2 h-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-brand-green opacity-75 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-green" />
-              </span>
-              {t.hero.eyebrow}
-            </motion.div>
+            <div className="sticker bg-sun -rotate-2 mb-8">
+              ★ {t.hero.eyebrow}
+            </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+            <h1 className="font-display font-extrabold text-[2.7rem] leading-[0.97] sm:text-6xl lg:text-6xl xl:text-7xl text-ink tracking-tight mb-6">
               {t.hero.title}
               <br />
-              <span className="bg-gradient-to-r from-brand-green to-emerald-300 bg-clip-text text-transparent">
+              <span className="inline-block bg-brand-green border-2 border-ink px-3 py-1 mt-3 -rotate-1 shadow-brut">
                 {t.hero.titleAccent}
               </span>
             </h1>
 
-            <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-lg">
+            <p className="text-lg text-ink/75 leading-relaxed mb-8 max-w-lg font-medium">
               {t.hero.subtitle}
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-6">
-              <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+            <div className="flex flex-wrap gap-4 mb-8">
+              <a
                 href={`${APP_URL}/onboarding`}
-                className="inline-flex items-center gap-2 bg-brand-green hover:brightness-110 text-brand-dark font-bold px-6 py-3.5 rounded-xl text-base transition-all shadow-lg shadow-brand-green/25"
+                className="btn-brut bg-brand-green text-ink px-6 py-4 text-sm"
               >
                 {t.hero.cta}
                 <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
-              </motion.a>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
+              </a>
+              <button
                 onClick={() => document.getElementById('how')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2 border border-white/20 text-white hover:bg-white/10 font-semibold px-6 py-3.5 rounded-xl text-base transition-colors backdrop-blur-sm"
+                className="btn-brut bg-white text-ink px-6 py-4 text-sm"
               >
-                <PlayCircle className="w-5 h-5" strokeWidth={1.75} />
+                <PlayCircle className="w-5 h-5" strokeWidth={2} />
                 {t.hero.demo}
-              </motion.button>
+              </button>
             </div>
 
             <div className="flex flex-wrap gap-x-5 gap-y-2 mb-8">
               {[t.hero.badge1, t.hero.badge2, t.hero.badge3].map((badge) => (
-                <span key={badge} className="inline-flex items-center gap-1.5 text-sm text-slate-400">
-                  <Check className="w-4 h-4 text-brand-green" strokeWidth={3} />
+                <span key={badge} className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-ink">
+                  <span className="w-4 h-4 bg-brand-green border border-ink flex items-center justify-center">
+                    <Check className="w-3 h-3 text-ink" strokeWidth={4} />
+                  </span>
                   {badge}
                 </span>
               ))}
             </div>
 
-            <div className="flex items-center gap-4 pt-4 border-t border-white/5">
+            <div className="flex items-center gap-4 pt-5 border-t-2 border-ink/10">
               <div className="flex -space-x-2">
-                {['from-brand-green to-emerald-400', 'from-emerald-400 to-teal-500', 'from-teal-500 to-emerald-600', 'from-emerald-300 to-brand-green'].map((g, i) => (
-                  <div
-                    key={i}
-                    className={`w-9 h-9 rounded-full bg-gradient-to-br ${g} ring-2 ring-brand-dark`}
-                  />
+                {['bg-brand-green', 'bg-sun', 'bg-coral', 'bg-ink'].map((c, i) => (
+                  <div key={i} className={`w-9 h-9 rounded-full border-2 border-ink ${c}`} />
                 ))}
               </div>
               <div>
                 <div className="flex items-center gap-1 mb-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                    <Star key={i} className="w-3.5 h-3.5 text-ink fill-ink" />
                   ))}
-                  <span className="text-white text-sm font-semibold ml-1">{t.hero.proofRating}</span>
+                  <span className="text-ink text-sm font-extrabold ml-1 font-display">{t.hero.proofRating}</span>
                 </div>
-                <p className="text-slate-400 text-xs">{t.hero.proofCount}</p>
+                <p className="text-ink/60 text-xs font-mono">{t.hero.proofCount}</p>
               </div>
             </div>
           </motion.div>
@@ -117,16 +94,29 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
             className="flex justify-center lg:justify-end"
           >
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            >
+            <div className="rotate-2">
               <WhatsAppMockup />
-            </motion.div>
+            </div>
           </motion.div>
+        </div>
+      </div>
+
+      {/* Marquee strip */}
+      <div className="relative border-y-2 border-ink bg-brand-green overflow-hidden py-3">
+        <div className="flex whitespace-nowrap animate-marquee w-max">
+          {[0, 1].map((dup) => (
+            <div key={dup} aria-hidden={dup === 1} className="flex items-center">
+              {marqueeItems.map((item) => (
+                <span key={`${dup}-${item}`} className="font-display font-extrabold uppercase text-ink text-sm sm:text-base tracking-wide flex items-center">
+                  <span className="px-4">{item}</span>
+                  <span className="text-paper">★</span>
+                </span>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

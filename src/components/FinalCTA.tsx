@@ -1,6 +1,6 @@
 import type { RefObject } from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useI18n } from '../hooks/useI18n';
 import { useIntersection } from '../hooks/useIntersection';
 
@@ -11,45 +11,32 @@ export function FinalCTA() {
   const ref = useIntersection();
 
   return (
-    <section id="contact" className="py-24 bg-brand-light" ref={ref as RefObject<HTMLElement>}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section id="contact" className="py-28 bg-brand-green border-t-2 border-ink relative overflow-hidden" ref={ref as RefObject<HTMLElement>}>
+      <span aria-hidden className="hidden md:block absolute top-12 left-[10%] font-display font-extrabold text-6xl text-ink/15 select-none rotate-12">✱</span>
+      <span aria-hidden className="hidden md:block absolute bottom-12 right-[8%] font-display font-extrabold text-5xl text-ink/15 select-none -rotate-12">✱</span>
+      <span aria-hidden className="hidden lg:block absolute top-1/2 right-[22%] font-display font-extrabold text-3xl text-paper select-none rotate-6">★</span>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
-          className="relative bg-brand-dark rounded-3xl p-12 overflow-hidden"
         >
-          <motion.div
-            animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
-            transition={{ duration: 6, repeat: Infinity }}
-            className="absolute top-0 right-0 w-72 h-72 bg-brand-green rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"
-          />
-          <motion.div
-            animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
-            transition={{ duration: 6, repeat: Infinity, delay: 3 }}
-            className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-500 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"
-          />
-
-          <div className="relative">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-green/15 rounded-2xl mb-6">
-              <Rocket className="w-8 h-8 text-brand-green" strokeWidth={1.75} />
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
-              {t.finalCta.title}
-            </h2>
-            <p className="text-slate-400 text-lg mb-8 max-w-xl mx-auto">
-              {t.finalCta.subtitle}
-            </p>
-            <a
-              href={`${APP_URL}/onboarding`}
-              className="inline-flex items-center gap-2 bg-brand-green hover:brightness-110 text-brand-dark font-bold px-8 py-4 rounded-xl text-lg transition-all hover:scale-105 shadow-lg shadow-brand-green/30 mb-4"
-            >
-              {t.finalCta.cta}
-              <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
-            </a>
-            <p className="text-slate-500 text-sm">{t.finalCta.note}</p>
-          </div>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-ink mb-6 tracking-tight leading-[1.02]">
+            {t.finalCta.title}
+          </h2>
+          <p className="text-ink/75 text-lg mb-10 max-w-xl mx-auto font-medium">
+            {t.finalCta.subtitle}
+          </p>
+          <a
+            href={`${APP_URL}/onboarding`}
+            className="inline-flex items-center gap-3 bg-ink text-paper border-2 border-ink font-bold uppercase tracking-wide px-10 py-5 text-base shadow-brut-sun transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[10px_10px_0_0_#FFC940] active:translate-x-1 active:translate-y-1 active:shadow-none mb-5"
+          >
+            {t.finalCta.cta}
+            <ArrowRight className="w-5 h-5" strokeWidth={2.5} />
+          </a>
+          <p className="font-mono text-xs font-bold text-ink/60">{t.finalCta.note}</p>
         </motion.div>
       </div>
     </section>

@@ -22,21 +22,22 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-sm border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-paper border-b-2 border-ink">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="font-display font-bold text-xl text-white flex items-center gap-0.5">
-            Automatiza<span className="text-brand-green">360</span>
+          <a href="/" className="font-display font-extrabold text-lg text-ink tracking-tight flex items-center gap-1">
+            AUTOMATIZA
+            <span className="bg-brand-green border-2 border-ink px-1 leading-none py-0.5 -rotate-3 shadow-brut-sm">360</span>
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-1">
             {links.map((l) => (
               <button
                 key={l.id}
                 onClick={() => scrollTo(l.id)}
-                className="text-sm text-slate-300 hover:text-white transition-colors font-body"
+                className="text-sm font-semibold text-ink px-3 py-1.5 hover:bg-sun hover:border-ink border-2 border-transparent transition-colors"
               >
                 {l.label}
               </button>
@@ -46,13 +47,13 @@ export function Navbar() {
           {/* Desktop actions */}
           <div className="hidden md:flex items-center gap-3">
             {/* Language toggle */}
-            <div className="flex items-center bg-white/10 rounded-full p-0.5 text-xs font-semibold">
+            <div className="flex border-2 border-ink font-mono text-xs font-bold">
               {(['es', 'en'] as Lang[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className={`px-2.5 py-1 rounded-full transition-colors ${
-                    lang === l ? 'bg-brand-green text-brand-dark' : 'text-slate-300 hover:text-white'
+                  className={`px-2.5 py-1 transition-colors ${
+                    lang === l ? 'bg-ink text-paper' : 'bg-white text-ink hover:bg-paper-deep'
                   }`}
                 >
                   {l.toUpperCase()}
@@ -61,13 +62,13 @@ export function Navbar() {
             </div>
             <a
               href={`${APP_URL}/login`}
-              className="text-sm text-slate-300 hover:text-white transition-colors px-3 py-1.5"
+              className="text-sm font-bold text-ink underline-offset-4 hover:underline decoration-2 decoration-brand-green px-2"
             >
               {t.nav.login}
             </a>
             <a
               href={`${APP_URL}/onboarding`}
-              className="text-sm bg-brand-green hover:brightness-110 text-brand-dark font-semibold px-4 py-2 rounded-lg transition-colors"
+              className="btn-brut bg-brand-green text-ink text-xs px-4 py-2"
             >
               {t.nav.start}
             </a>
@@ -75,14 +76,12 @@ export function Navbar() {
 
           {/* Mobile: lang + hamburger */}
           <div className="md:hidden flex items-center gap-2">
-            <div className="flex items-center bg-white/10 rounded-full p-0.5 text-xs font-semibold">
+            <div className="flex border-2 border-ink font-mono text-xs font-bold">
               {(['es', 'en'] as Lang[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className={`px-2 py-0.5 rounded-full transition-colors ${
-                    lang === l ? 'bg-brand-green text-brand-dark' : 'text-slate-300'
-                  }`}
+                  className={`px-2 py-0.5 ${lang === l ? 'bg-ink text-paper' : 'bg-white text-ink'}`}
                 >
                   {l.toUpperCase()}
                 </button>
@@ -90,16 +89,16 @@ export function Navbar() {
             </div>
             <button
               onClick={() => setMenuOpen((o) => !o)}
-              className="p-2 text-slate-300 hover:text-white"
+              className="p-1.5 border-2 border-ink bg-white text-ink active:bg-sun"
               aria-label="Toggle menu"
             >
               {menuOpen ? (
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
             </button>
@@ -109,26 +108,26 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-brand-dark border-t border-white/10 px-4 pb-4 pt-2">
+        <div className="md:hidden bg-paper border-t-2 border-ink px-4 pb-4 pt-2">
           {links.map((l) => (
             <button
               key={l.id}
               onClick={() => scrollTo(l.id)}
-              className="block w-full text-left py-3 text-slate-300 hover:text-white text-sm border-b border-white/5"
+              className="block w-full text-left py-3 text-ink font-semibold text-sm border-b-2 border-ink/10"
             >
               {l.label}
             </button>
           ))}
-          <div className="flex gap-2 mt-4">
+          <div className="flex gap-3 mt-4">
             <a
               href={`${APP_URL}/login`}
-              className="flex-1 text-center text-sm text-slate-300 border border-white/20 py-2.5 rounded-lg hover:bg-white/5 transition-colors"
+              className="flex-1 text-center text-sm font-bold text-ink border-2 border-ink bg-white py-2.5"
             >
               {t.nav.login}
             </a>
             <a
               href={`${APP_URL}/onboarding`}
-              className="flex-1 text-center text-sm bg-brand-green text-brand-dark font-semibold py-2.5 rounded-lg"
+              className="flex-1 text-center text-sm bg-brand-green border-2 border-ink text-ink font-bold py-2.5 shadow-brut-sm"
             >
               {t.nav.start}
             </a>

@@ -9,37 +9,35 @@ export function FAQ() {
   const ref = useIntersection();
 
   return (
-    <section id="contact" className="py-24 bg-brand-dark" ref={ref as RefObject<HTMLElement>}>
+    <section id="faq" className="py-24 bg-paper" ref={ref as RefObject<HTMLElement>}>
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+          <p className="label-mono text-ink/50 mb-4">// FAQ</p>
+          <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-ink mb-4 tracking-tight">
             {t.faq.title}
           </h2>
-          <p className="text-slate-400 text-lg">{t.faq.subtitle}</p>
+          <p className="text-ink/60 text-lg font-medium">{t.faq.subtitle}</p>
         </div>
 
-        <div className="space-y-3 animate-on-scroll stagger-1">
+        <div className="space-y-4 animate-on-scroll stagger-1">
           {t.faq.items.map((item, i) => (
             <div
               key={i}
-              className="bg-white/5 border border-white/10 rounded-xl overflow-hidden"
+              className={`bg-white border-2 border-ink transition-shadow ${open === i ? 'shadow-brut' : 'shadow-brut-sm'}`}
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between px-6 py-4 text-left text-white font-semibold hover:bg-white/5 transition-colors"
+                className="w-full flex items-center justify-between px-6 py-4 text-left text-ink font-bold hover:bg-paper transition-colors"
               >
-                <span className="text-sm">{item.q}</span>
-                <svg
-                  className={`w-5 h-5 text-brand-green transition-transform flex-shrink-0 ml-4 ${open === i ? 'rotate-180' : ''}`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                <span className="text-sm sm:text-base">{item.q}</span>
+                <span className={`w-8 h-8 border-2 border-ink flex items-center justify-center flex-shrink-0 ml-4 font-display font-extrabold text-lg transition-colors ${
+                  open === i ? 'bg-brand-green' : 'bg-paper'
+                }`}>
+                  {open === i ? '−' : '+'}
+                </span>
               </button>
               {open === i && (
-                <div className="px-6 pb-4 text-sm text-slate-400 leading-relaxed border-t border-white/10 pt-4">
+                <div className="px-6 pb-5 text-sm text-ink/70 leading-relaxed border-t-2 border-ink/10 pt-4 font-medium">
                   {item.a}
                 </div>
               )}

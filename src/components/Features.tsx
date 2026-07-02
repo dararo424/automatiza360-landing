@@ -18,18 +18,17 @@ export function Features() {
   ];
 
   return (
-    <section id="features" className="py-24 bg-brand-dark relative overflow-hidden" ref={ref as RefObject<HTMLElement>}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,194,120,0.08),transparent_60%)]" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-24 bg-ink" ref={ref as RefObject<HTMLElement>}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight">
+          <p className="label-mono text-brand-green mb-4">// 24/7</p>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-paper mb-4 tracking-tight">
             {t.features.title}
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">{t.features.subtitle}</p>
+          <p className="text-paper/60 text-lg max-w-xl mx-auto font-medium">{t.features.subtitle}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((f, i) => (
             <motion.div
               key={f.title}
@@ -37,17 +36,13 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              whileHover={{ y: -4 }}
-              className="group relative bg-white/[0.03] border border-white/10 rounded-2xl p-7 hover:border-brand-green/40 hover:bg-white/[0.05] transition-all overflow-hidden"
+              className="group bg-paper border-2 border-ink shadow-brut-green p-7 transition-transform duration-150 hover:-translate-y-1"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-green/15 to-brand-green/0 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="relative">
-                <div className="w-12 h-12 bg-brand-green/10 ring-1 ring-brand-green/20 rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green/20 group-hover:ring-brand-green/40 transition-all">
-                  <f.Icon className="w-6 h-6 text-brand-green" strokeWidth={2} />
-                </div>
-                <h3 className="font-display font-bold text-white text-lg mb-2 tracking-tight">{f.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{f.desc}</p>
+              <div className="w-12 h-12 bg-brand-green border-2 border-ink flex items-center justify-center mb-5">
+                <f.Icon className="w-6 h-6 text-ink" strokeWidth={2} />
               </div>
+              <h3 className="font-display font-extrabold text-ink text-lg mb-2 tracking-tight">{f.title}</h3>
+              <p className="text-ink/60 text-sm leading-relaxed font-medium">{f.desc}</p>
             </motion.div>
           ))}
         </div>
