@@ -6,23 +6,24 @@ export function Footer({ onNavigate }: Props) {
   const { t } = useI18n();
 
   return (
-    <footer className="bg-brand-dark border-t border-white/10 py-12">
+    <footer className="bg-ink border-t-2 border-ink py-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-10">
+        <div className="grid md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="font-display font-bold text-xl text-white mb-3">
-              Automatiza<span className="text-brand-green">360</span>
+            <div className="font-display font-extrabold text-xl text-paper mb-4 flex items-center gap-1">
+              AUTOMATIZA
+              <span className="bg-brand-green border-2 border-paper text-ink px-1 py-0.5 leading-none -rotate-3">360</span>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
+            <p className="text-paper/60 text-sm leading-relaxed max-w-xs font-medium">
               {t.footer.tagline}
             </p>
-            <div className="flex gap-3 mt-4">
+            <div className="flex gap-3 mt-5">
               {['twitter', 'instagram', 'linkedin'].map((social) => (
                 <a
                   key={social}
                   href="#"
-                  className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/20 transition-colors text-xs"
+                  className="w-9 h-9 border-2 border-paper/40 flex items-center justify-center text-paper/70 font-mono text-xs font-bold hover:bg-brand-green hover:text-ink hover:border-brand-green transition-colors"
                   aria-label={social}
                 >
                   {social === 'twitter' ? 'X' : social === 'instagram' ? 'IG' : 'in'}
@@ -33,23 +34,23 @@ export function Footer({ onNavigate }: Props) {
 
           {/* Links */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Legal</h4>
-            <div className="space-y-2">
+            <h4 className="label-mono text-brand-green mb-5">Legal</h4>
+            <div className="space-y-2.5">
               <button
                 onClick={() => onNavigate('terminos')}
-                className="block text-slate-400 hover:text-white text-sm transition-colors"
+                className="block text-paper/60 hover:text-paper text-sm font-medium transition-colors hover:underline underline-offset-4 decoration-brand-green decoration-2"
               >
                 {t.footer.terms}
               </button>
               <button
                 onClick={() => onNavigate('privacidad')}
-                className="block text-slate-400 hover:text-white text-sm transition-colors"
+                className="block text-paper/60 hover:text-paper text-sm font-medium transition-colors hover:underline underline-offset-4 decoration-brand-green decoration-2"
               >
                 {t.footer.privacy}
               </button>
               <a
                 href="mailto:hola@automatiza360.com"
-                className="block text-slate-400 hover:text-white text-sm transition-colors"
+                className="block text-paper/60 hover:text-paper text-sm font-medium transition-colors hover:underline underline-offset-4 decoration-brand-green decoration-2"
               >
                 {t.footer.contact}
               </a>
@@ -58,18 +59,18 @@ export function Footer({ onNavigate }: Props) {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Contacto</h4>
+            <h4 className="label-mono text-brand-green mb-5">Contacto</h4>
             <a
               href={`mailto:${t.footer.email}`}
-              className="text-slate-400 hover:text-brand-green text-sm transition-colors"
+              className="font-mono text-sm text-paper/70 hover:text-brand-green transition-colors"
             >
               {t.footer.email}
             </a>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center">
-          <p className="text-slate-500 text-sm">{t.footer.copyright}</p>
+        <div className="border-t-2 border-paper/15 pt-6 text-center">
+          <p className="font-mono text-xs text-paper/40">{t.footer.copyright}</p>
         </div>
       </div>
     </footer>

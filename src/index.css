@@ -2,13 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Self-hosted fonts (latin subset, variable weights) */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/bricolage-grotesque-normal-400-800.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/archivo-normal-400-800.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/fonts/archivo-italic-400-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/space-mono-normal-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/space-mono-normal-700.woff2') format('woff2');
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Archivo', sans-serif;
   }
   body {
-    @apply bg-white text-slate-800 antialiased;
+    @apply bg-paper text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-sun text-ink;
+  }
+}
+
+@layer components {
+  /* Neo-brutalist button: hard border, solid offset shadow, press effect */
+  .btn-brut {
+    @apply inline-flex items-center justify-center gap-2 border-2 border-ink font-bold uppercase tracking-wide shadow-brut transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brut-lg active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+  .card-brut {
+    @apply bg-white border-2 border-ink shadow-brut;
+  }
+  .label-mono {
+    @apply font-mono text-xs font-bold uppercase tracking-[0.25em];
+  }
+  /* Rotated sticker chip */
+  .sticker {
+    @apply inline-block border-2 border-ink px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider shadow-brut-sm;
   }
 }
 

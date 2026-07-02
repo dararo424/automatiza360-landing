@@ -45,27 +45,27 @@ export function CookieBanner() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6">
-      <div className="max-w-4xl mx-auto bg-brand-dark border border-white/15 rounded-2xl shadow-2xl px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div className="max-w-4xl mx-auto bg-white border-2 border-ink shadow-brut-lg px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <div className="flex-1">
-          <p className="text-white text-sm font-semibold mb-1">🍪 Usamos cookies</p>
-          <p className="text-slate-400 text-xs leading-relaxed">
+          <p className="text-ink text-sm font-display font-extrabold mb-1">🍪 Usamos cookies</p>
+          <p className="text-ink/60 text-xs leading-relaxed font-medium">
             Utilizamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico.
             Puedes aceptar todas o solo las esenciales. Consulta nuestra{' '}
-            <a href="#/privacidad" className="text-brand-green underline underline-offset-2">
+            <a href="#/privacidad" className="text-ink font-bold underline underline-offset-2 decoration-brand-green decoration-2">
               Política de Privacidad
             </a>.
           </p>
         </div>
-        <div className="flex gap-2 shrink-0">
+        <div className="flex gap-3 shrink-0">
           <button
             onClick={acceptEssential}
-            className="text-xs px-4 py-2 rounded-lg border border-white/20 text-slate-300 hover:bg-white/10 transition-colors"
+            className="text-xs font-bold px-4 py-2 border-2 border-ink bg-white text-ink hover:bg-paper transition-colors"
           >
             Solo esenciales
           </button>
           <button
             onClick={acceptAll}
-            className="text-xs px-4 py-2 rounded-lg bg-brand-green hover:brightness-110 text-brand-dark font-semibold transition-all"
+            className="text-xs font-bold px-4 py-2 border-2 border-ink bg-brand-green text-ink shadow-brut-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none transition-all"
           >
             Aceptar todas
           </button>

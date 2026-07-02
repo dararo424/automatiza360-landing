@@ -1,4 +1,6 @@
 import type { RefObject } from 'react';
+import { motion } from 'framer-motion';
+import { Bot, ShoppingBag, CalendarCheck, Receipt, LineChart, Smartphone } from 'lucide-react';
 import { useI18n } from '../hooks/useI18n';
 import { useIntersection } from '../hooks/useIntersection';
 
@@ -7,36 +9,41 @@ export function Features() {
   const ref = useIntersection();
 
   const features = [
-    { emoji: '🤖', title: t.features.f1Title, desc: t.features.f1Desc },
-    { emoji: '📦', title: t.features.f2Title, desc: t.features.f2Desc },
-    { emoji: '🎫', title: t.features.f3Title, desc: t.features.f3Desc },
-    { emoji: '💰', title: t.features.f4Title, desc: t.features.f4Desc },
-    { emoji: '📊', title: t.features.f5Title, desc: t.features.f5Desc },
-    { emoji: '🔔', title: t.features.f6Title, desc: t.features.f6Desc },
+    { Icon: Bot, title: t.features.f1Title, desc: t.features.f1Desc },
+    { Icon: ShoppingBag, title: t.features.f2Title, desc: t.features.f2Desc },
+    { Icon: CalendarCheck, title: t.features.f3Title, desc: t.features.f3Desc },
+    { Icon: Receipt, title: t.features.f4Title, desc: t.features.f4Desc },
+    { Icon: LineChart, title: t.features.f5Title, desc: t.features.f5Desc },
+    { Icon: Smartphone, title: t.features.f6Title, desc: t.features.f6Desc },
   ];
 
   return (
-    <section id="features" className="py-24 bg-brand-dark" ref={ref as RefObject<HTMLElement>}>
+    <section id="features" className="py-24 bg-ink" ref={ref as RefObject<HTMLElement>}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-on-scroll">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-4">
+          <p className="label-mono text-brand-green mb-4">// 24/7</p>
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-paper mb-4 tracking-tight">
             {t.features.title}
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">{t.features.subtitle}</p>
+          <p className="text-paper/60 text-lg max-w-xl mx-auto font-medium">{t.features.subtitle}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((f, i) => (
-            <div
+            <motion.div
               key={f.title}
-              className={`animate-on-scroll stagger-${Math.min(i + 1, 6)} bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-brand-green/30 transition-all group`}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+              className="group bg-paper border-2 border-ink shadow-brut-green p-7 transition-transform duration-150 hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-brand-green/10 rounded-xl flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-green/20 transition-colors">
-                {f.emoji}
+              <div className="w-12 h-12 bg-brand-green border-2 border-ink flex items-center justify-center mb-5">
+                <f.Icon className="w-6 h-6 text-ink" strokeWidth={2} />
               </div>
-              <h3 className="font-display font-bold text-white text-lg mb-2">{f.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{f.desc}</p>
-            </div>
+              <h3 className="font-display font-extrabold text-ink text-lg mb-2 tracking-tight">{f.title}</h3>
+              <p className="text-ink/60 text-sm leading-relaxed font-medium">{f.desc}</p>
+            </motion.div>
           ))}
         </div>
       </div>
